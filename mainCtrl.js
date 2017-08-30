@@ -41,8 +41,8 @@ module.exports = {
       return string.charAt(0).toUpperCase() + string.slice(1) + '%';
     }
     if(req.query.userFirstStart){
-      const name = sqlReady(req.query.userFirstStart)
-      db.userVehiclesName([name])
+      const sqlName = sqlReady(req.query.userFirstStart)
+      db.userVehiclesName([sqlName])
       .then( vehicles => res.status(200).send(vehicles))
       .catch( err => res.status(500).send(err))
     } else {
